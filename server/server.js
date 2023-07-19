@@ -11,7 +11,7 @@ app.use(express.json());
 // Connect to MongoDB using Mongoose
 mongoose
   .connect(
-    "mongodb+srv://20bd1a056b:Eash%40123@cluster0.wvwcvqn.mongodb.net/colleges_db",
+    'mongodb+srv://20bd1a056b:Eash123@cluster0.wvwcvqn.mongodb.net/colleges_db?retryWrites=true&w=majority',
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
@@ -27,16 +27,16 @@ mongoose
 // Define the college schema and model
 const collegeSchema = new mongoose.Schema({
   name: String,
-  rollno: String,
   dept: String,
   College: String,
-  Grade : Number
+  Grade: Number,
+  rollno: String
 });
 
 const College = mongoose.model("students", collegeSchema);
 
 // Define an API route to fetch colleges data
-app.get("/api/colleges", (req, res) => {
+app.get("http://localhost:5000/api/colleges", (req, res) => {
   College.find({})
     .then((colleges) => {
       res.json(colleges);
@@ -67,18 +67,18 @@ app.get("/api/:college", (req, res) => {
     });
 });
 // Define an API route to fetch student data by roll number
-app.get('/api/students/:rollNumber', (req, res) => {
+app.get("/api/students/:rollNumber", (req, res) => {
   const rollNumber = req.params.rollNumber;
-  College.findOne({ 'rollno': rollNumber })
-    .then(student => {
+  College.findOne({ rollno: rollNumber })
+    .then((student) => {
       if (!student) {
-        return res.status(404).json({ error: 'Student not found' });
+        return res.status(404).json({ error: "Student not found" });
       }
       res.json(student);
     })
-    .catch(error => {
-      console.log('Error fetching student:', error);
-      res.status(500).json({ error: 'Failed to fetch student' });
+    .catch((error) => {
+      console.log("Error fetching student:", error);
+      res.status(500).json({ error: "Failed to fetch student" });
     });
 });
 
