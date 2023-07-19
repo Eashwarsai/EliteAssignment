@@ -32,7 +32,7 @@ const College = () => {
             type="text"
             style={inputStyle}
             onChange={handleRollNumberChange}
-            placeholder="Enter Rollno"
+            placeholder="Enter Rollno from 20BD1A056B TO 20BD1A056K"
           />
           <button
             type="submit"

@@ -10,10 +10,13 @@ app.use(express.json());
 
 // Connect to MongoDB using Mongoose
 mongoose
-  .connect("mongodb://127.0.0.1:27017/colleges_db", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://20bd1a056b:Eash%40123@cluster0.wvwcvqn.mongodb.net/colleges_db",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("Connected to MongoDB");
   })

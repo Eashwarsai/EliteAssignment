@@ -32,7 +32,7 @@ const Department = () => {
             type="text"
             style={inputStyle}
             onChange={handleDeptChange}
-            placeholder="Enter Department"
+            placeholder="Enter Department (Choose from CSE CSM or IT)"
           />
           <button
             type="submit"

@@ -32,7 +32,7 @@ const College = () => {
             type="text"
             style={inputStyle}
             onChange={handleCollegeChange}
-            placeholder="Enter College"
+            placeholder="Enter College (Choose one from KMIT NGIT KMEC)"
           />
           <button
             type="submit"
