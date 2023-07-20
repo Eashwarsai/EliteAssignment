@@ -7,16 +7,18 @@ const College = () => {
       setClg(event.target.value);
     };
     const fetchStudentByCollege = (event) => {
-    event.preventDefault();
+      event.preventDefault();
       if (!clg) {
         return;
       }
+      //https://5000-eashwarsai-eliteassignm-qbdn27zf5zg.ws-us101.gitpod.io/(replace the url in axios get
+      //with this kind of url from gitpod or sandbox you get while running)
       axios
         .get(`http://localhost:5000/api/${clg}`)
         .then((response) => {
-            console.log(response);
-            setData(response.data)
-            console.log(data)
+          console.log(response);
+          setData(response.data);
+          console.log(data);
         })
         .catch((error) => {
           console.log("Error fetching student:", error);

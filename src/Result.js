@@ -11,6 +11,8 @@ const College = () => {
     if (!rollno) {
       return;
     }
+    //https://5000-eashwarsai-eliteassignm-qbdn27zf5zg.ws-us101.gitpod.io/(replace the url in axios get 
+    //with this kind of url from gitpod or sandbox you get while running)
     axios
       .get(`http://localhost:5000/api/students/${rollno}`)
       .then((response) => {
